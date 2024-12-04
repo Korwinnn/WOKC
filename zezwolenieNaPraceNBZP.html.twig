@@ -1,0 +1,236 @@
+<table style="width: 100%">
+    <tr>
+        <td style="text-align: left">Komórka organizacyjna ................</td>
+        <td style="text-align: right">Brodnica, {{ "now"|date("d.m.Y") }}</td>
+    </tr>
+</table>
+<h3 style="text-align: center">PRACE ZWIĄZANE ZE ZNACZĄCYMI ZAGROŻENIAMI</h3>
+<h4 style="text-align: center">POZWOLENIE NR {{ data['info']['NUMERPOZWOLENIA'] }}</h4>
+<h5 style="text-align: center">na prowadzenie pracy szczególnie niebezpiecznej</h5>
+
+<p>1. Termin rozpoczęcia prac dzień: {{ data['info']['DATAROZPOCZECIE']['date']|date("d.m.Y H:i") }}</p>
+<p>2. Termin zakończenia prac dzień {{ data['info']['DATAZAKONCZENIE']['date']|date("d.m.Y H:i") }}</p>
+<p>3. Strefa, miejsce pracy: {{ data['info']['LOKALIZACJA'] }}</p>
+<p>4. Rodzaj i zakres prac do wykonania: {{ data['info']['RODZAJPRAC'] }}</p>
+<p>5. Występujące i przewidywane zagrożenia dla zdrowia i życia</p>
+<table >
+    {% if data['info']['WYSTEPUJACEZAGROZENIA']|slice(0,1)=="Y" %}
+        <tr>
+            <td>- Upadek na tym samym poziomie.</td>
+        </tr>
+    {% endif %}
+    {% if data['info']['WYSTEPUJACEZAGROZENIA']|slice(2,1)=="Y" %}
+        <tr>
+            <td>- Upadek z wysokości.</td>
+        </tr>
+    {% endif %}
+    {% if data['info']['WYSTEPUJACEZAGROZENIA']|slice(4,1)=="Y" %}
+        <tr>
+            <td>- Przygniecenie, uderzenie, potrącenie.</td>
+        </tr>
+    {% endif %}
+    {% if data['info']['WYSTEPUJACEZAGROZENIA']|slice(6,1)=="Y" %}
+        <tr>
+            <td>- Urazy spowodowane będącymi w ruchu elementami maszyn i urządzeń</td>
+        </tr>
+    {% endif %}
+    {% if data['info']['WYSTEPUJACEZAGROZENIA']|slice(8,1)=="Y" %}
+        <tr>
+            <td>- Oparzenia termiczne.</td>
+        </tr>
+    {% endif %}
+    {% if data['info']['WYSTEPUJACEZAGROZENIA']|slice(10,1)=="Y" %}
+        <tr>
+            <td>- Oparzenia chemiczne.</td>
+        </tr>
+    {% endif %}
+    {% if data['info']['WYSTEPUJACEZAGROZENIA']|slice(12,1)=="Y" %}
+        <tr>
+            <td>- Hałas.</td>
+        </tr>
+    {% endif %}
+    {% if data['info']['WYSTEPUJACEZAGROZENIA']|slice(14,1)=="Y" %}
+        <tr>
+            <td>- Porażenie prądem elektrycznym.</td>
+        </tr>
+    {% endif %}
+    {% if data['info']['WYSTEPUJACEZAGROZENIA']|slice(16,1)=="Y" %}
+        <tr>
+            <td>- Pożar.Wybuch.</td>
+        </tr>
+    {% endif %}
+
+</table>
+
+<p>6. Sposób przygotowania miejsca stefy pracy: {{ data['info']['UWAGI'] }}</p>
+<p>7. Konieczne do zastosowania środki i urzązenia ochronne</p>
+
+<table>
+    {% if data['info']['WYSTEPUJACEZAGROZENIA']|slice(0,1)=="Y" %}
+        <tr>
+            <td>- Stosowanie przez pracowników odpowiedniego obuwia. Zapewnienie porządku i czystości w miejscu pracy</td>
+        </tr>
+    {% endif %}
+    {% if data['info']['WYSTEPUJACEZAGROZENIA']|slice(2,1)=="Y" %}
+        <tr>
+            <td>- Stosowanie odpowiednich zabezpieczeń stałych (poręczy). Stosowania środków ochrony indywidualnej.</td>
+        </tr>
+    {% endif %}
+    {% if data['info']['WYSTEPUJACEZAGROZENIA']|slice(4,1)=="Y" %}
+        <tr>
+            <td>- Poruszanie się po terenie zakładu po wyznaczonych drogach. Zachowanie szczególnej ostrożności na skrzyżowaniach dróg pieszych z drogami transportowymi</td>
+        </tr>
+    {% endif %}
+    {% if data['info']['WYSTEPUJACEZAGROZENIA']|slice(6,1)=="Y" %}
+        <tr>
+            <td>- Odłączeniu maszyny lub urządzenia od doprowadzonych mediów (sprężone powietrze, energia elektryczna). Zabezpieczenie przed możliwością przypadkowego włączenia mediów (kłódka na głównym włączniku prądu, zaślepienie lub odłączenie przewodu ze sprężonym powietrzem.
+            </td>
+        </tr>
+    {% endif %}
+    {% if data['info']['WYSTEPUJACEZAGROZENIA']|slice(8,1)=="Y" %}
+        <tr>
+            <td>- Nie zbliżanie się do nieosłoniętych gorących elementów maszyn i urządzeń. W przypadku wątpliwości zasięgnąć porady kompetentnego pracownika WOK sp. z o. o.
+            </td>
+        </tr>
+    {% endif %}
+    {% if data['info']['WYSTEPUJACEZAGROZENIA']|slice(10,1)=="Y" %}
+        <tr>
+            <td>- W przypadku konieczności zachowanie ostrożności w czasie przebywania w oczyszczalni ścieków i w kuchni klejowej. Stosowanie środków ochrony indywidualnej. Stosowanie procedur ustalonych w WOK sp. z o. o.
+            </td>
+        </tr>
+    {% endif %}
+    {% if data['info']['WYSTEPUJACEZAGROZENIA']|slice(12,1)=="Y" %}
+        <tr>
+            <td>- Stosowanie w razie konieczności ochronników słuchu..</td>
+        </tr>
+    {% endif %}
+    {% if data['info']['WYSTEPUJACEZAGROZENIA']|slice(14,1)=="Y" %}
+        <tr>
+            <td>- Stosowanie sprawnego technicznie osprzętu elektrycznego i przewodów doprowadzających prąd elektryczny. Dokonywanie podłączeń do instalacji elektrycznej WOK sp. z o. o. tylko przez uprawnionego elektryka.</td>
+        </tr>
+    {% endif %}
+    {% if data['info']['WYSTEPUJACEZAGROZENIA']|slice(16,1)=="Y" %}
+        <tr>
+            <td>- Przestrzeganie zakazu palenia tytoniu w miejscach do tego nie wyznaczonych. W przypadku konieczności wykonywania prac powodujących zagrożenie pożarowe uzyskać od pracownika WOK sp. z o. o. zlecającego pracę stosowne zezwolenie.
+            </td>
+        </tr>
+    {% endif %}
+
+</table>
+
+
+
+
+<p>8. Osoby odpowiedzialne za organizację i wykonanie pracy, potwierdzenie przez osoby wykonujące prace faktu przeszkolenia ich z zakresu warunków bezpieznego wyknania w/w prac i zapoznania się z ustaleniami zawartymi w Pozwoleniu:</p>
+<table class="tabelaPracownikow">
+    <tbody style="text-align: center">
+    <tr>
+        <td>{{ data['info']['KIERZESPOLEM'] }}</td>
+        <td>kierujący zespołem</td>
+        <td>____________________</td>
+    </tr>
+    <tr>
+        <td>{{ data['info']['NADZORUJACYZESPOLEM'] }}</td>
+        <td>nadzorujący zespolem</td>
+        <td>____________________</td>
+    </tr>
+    {% for e in data['info']['KOORDYNUJACYTABELA'] %}
+        <tr>
+            <td>{{ e }}</td>
+            <td>koordynujacy zespolem</td>
+            <td>____________________</td>
+        </tr>
+    {% endfor %}
+
+    {% for e in data['info']['DOPUSZCZENITABELA'] %}
+        <tr>
+            <td>{{ e }}</td>
+            <td>dopuszczonego do pracy</td>
+            <td>____________________</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot>
+    <tr>
+        <td style="text-align: center">imię i nazwisko</td>
+        <td style="text-align: center">stanowisko</td>
+        <td style="text-align: center">podpis</td>
+    </tr>
+    </tfoot>
+</table>
+
+
+
+<p>9. Potwierdzam wykonanie ustaleń zawartych w Pozwoleniu i przyjmuję obowiązek stałego nadozrowania prac i kierowania pracownikami zgodnie z przepisami zasadami BHP:</p>
+<table style="width: 100%">
+    <tr>
+        <td style="text-align: left">............................................</td>
+        <td style="text-align: right">............................................</td>
+    </tr>
+    <tr>
+        <td style="text-align: left; ; font-size: 10px">imię i nazwisko - stanowisko służbowe</td>
+        <td style="text-align: right; font-size: 10px">podpis</td>
+    </tr>
+</table>
+
+<p>10. Pozwalam na prowadzenie prac: </p>
+<table style="width: 100%">
+    <tr>
+        <td style="text-align: right">............................................</td>
+    </tr>
+    <tr>
+        <td style="text-align: right; font-size: 10px">data, podpis, pieczątka</td>
+    </tr>
+</table>
+
+
+
+
+<p>11. Wstrzymanie prac: {% if data['info']['WSTRZYMANIEPRAC'] == 1 %} <b>TAK</b>/NIE {% else %}  TAK/<b>NIE</b> {% endif %}</p>
+{% if data['info']['WSTRZYMANIEPRAC'] == 1 %}
+    <p>a) Wstrzymuje prace z powodu: {{ data['info']['WSTRZYMANIEPOWOD'] }}</p>
+    <p>od: {{ data['info']['WSTRZYMANIEDATAOD']['date']|date("d.m.Y H:i") }}, do {{ data['info']['WSTRZYMANIEDATADO']['date']|date("d.m.Y H:i") }}</p>
+    <table style="width: 100%">
+        <tr>
+            <td style="text-align: right">............................................</td>
+        </tr>
+        <tr>
+            <td style="text-align: right; font-size: 10px">data, podpis, pieczątka</td>
+        </tr>
+    </table>
+
+    <p>b) Po ustaniu przyczyn wstrzymania prac zezwalam na ich kontynuowanie. {% if data['info']['KONTYNUOWANIEPRAC'] == 1 %} <b>TAK</b>/NIE {% else %}  TAK/<b>NIE</b> {% endif %}</p>
+    <table style="width: 100%">
+        <tr>
+            <td style="text-align: right">............................................</td>
+        </tr>
+        <tr>
+            <td style="text-align: right; font-size: 10px">{{ data['info']['KONTYNUOWANIEPRAC']['date']|date("d.m.Y H:i") }}, podpis, pieczątka</td>
+        </tr>
+    </table>
+{% endif %}
+
+<p>12. Przedlużam pozwolenie na prowadzenie w/w prac: {% if data['info']['PRZEDLUZAM'] == 1 %} <b>TAK</b>/NIE {% else %}  TAK/<b>NIE</b> {% endif %}</p>
+{% if data['info']['PRZEDLUZAM'] == 1 %}
+    <p>od {{ data['info']['PRZEDLUZAMOD']['date']|date("d.m.Y H:i") }} do {{ data['info']['PRZEDLUZAMDO']['date']|date("d.m.Y H:i") }}</p>
+    <table style="width: 100%">
+        <tr>
+            <td style="text-align: right">............................................</td>
+        </tr>
+        <tr>
+            <td style="text-align: right; font-size: 10px">data, podpis, pieczątka</td>
+        </tr>
+    </table>
+{% endif %}
+
+<p>13. Kontrola zakończenia prac i ich odbiór,  {% if data['info']['ZAKONCZENIE'] == 1 %} <b>TAK</b>/NIE, w dniu {{ data['info']['ZAKONCZENIEDATA']['date']|date("d.m.Y H:i") }} {% else %}  TAK/<b>NIE</b> {% endif %}</p>
+<table style="width: 100%">
+    <tr>
+        <td style="text-align: left">............................................</td>
+        <td style="text-align: right">............................................</td>
+    </tr>
+    <tr>
+        <td style="text-align: left; ; font-size: 10px">data, podpis kierującego pracami</td>
+        <td style="text-align: right; font-size: 10px">data, podpis i pieczątka odbierającego prace</td>
+    </tr>
+</table>

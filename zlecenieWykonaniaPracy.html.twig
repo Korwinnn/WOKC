@@ -1,0 +1,76 @@
+
+{% if data['message'] is defined and  data['message']=='ok' %}
+    <h1 style='font-size: 11pt;text-align: center'>ZLECENIE WYKONANIA PRAC</h1>
+    <table style='margin-left: auto;margin-right: auto;width: 25%'><tr><td style='border: 1px solid black;text-align: center'>NR {{ data['data']['NUMER_ZLECENIA']}}</td></tr></table>
+    <ol>
+        <li>WOK Spółka z ograniczona odpowiedzialnością w Brodnicy, ul. Podgórna 104 zleca wykonanie następujących prac:</li>
+        <table style='width: 90%'><tr><td style='height:50px;border: 1px solid black;text-align: center'>{{ data['data']['TRESCZLECENIA']}}</td></tr></table>
+        <li>Prace wykonywane będą przy {{ data['data']['LOKALIZACJA']}}</li>
+        <li>Prace związane będą ze znaczącymi zagrożeniami:
+        {% if data['data']['ZAGROZENIA']==0 %} <span style='text-decoration: line-through'>TAK</span>/NIE*
+        {% else %} TAK/<span style='text-decoration: line-through'>NIE*</span>
+        {% endif %}
+        </li>
+        <li>Zlecenie udzielane jest (wskazać wykonawcę):</li>
+        <table style='width: 90%'><tr><td style='height:50px;border: 1px solid black;text-align: center'>{{data['data']['WYKONAWCA']}}, Numer polisy ubezpieczeniowej: {{ data['data']['NRPOLISY']}}</td></tr></table>
+        <li>Wykonawca w związku z udzieleniem mu zlecenia oświadcza, że:
+            <ol id='listinlist1'>
+                <li id='l1'>5.1 podczas wykonywania prac przez pracowników wykonawcy pracownicy WOK
+                    {% if data['zWOK']==1 %}
+                        będą/<span style='text-decoration: line-through'>nie będą</span>*
+                    {% else %}
+                        <span style='text-decoration: line-through'>będą</span>/nie będą*
+                    {% endif %}
+                    prowadzić własne prace. W przypadku prowadzenia wspólnych prac z pracownikami WOK:</li>
+                <li id='l2'>5.2 oznakuje i zabezpieczy miejsce wykonywania prac przez pracowników WOK w sposób   zabezpieczający przed możliwością wystąpienia zagrożenia,</li>
+                <li id='l3'>5.3 każde uruchomienie któregokolwiek napędu maszyny będzie uzgadniane ze wszystkimi pracownikami wykonawcy i pracownikami WOK przebywających w obrębie wykonywania prac,</li>
+                <li id='l4'>5.4 Uwagi dotyczące wykonywania wspólnych prac:</li>
+                <table style='width: 90%'>
+                    {% if data['zWOK']==1 %}
+                        <tr><td style='height:50px;border: 1px solid black;text-align: center'>{{ data['uwagaPrzyWOK']}}</td></tr>
+                    {% else %}
+                        <tr><td style='height:50px;border: 1px solid black;text-align: center'></td></tr>
+                    {% endif %}
+                </table>
+                <li id='l5'>5.5 zlecenie wykona przy pomocy własnych narzędzi i sprzętu, chyba że w zleceniu inaczej postanowiono, stosując się do ustaleń pkt. 8 formularza PBHP10-F2</li>
+                <li id='l6'>5.6 pracownicy posiadają aktualne szkolenie w zakresie bhp, aktualne lekarskie badania profilaktyczne -  formularz PBHP10-F3,</li>
+                <li id='l7'>5.7 zapoznał się z  zagrożeniami występującymi podczas wykonywania pracy w WOK sp. z o. o. w Brodnicy, podejmowanymi działania ochronnymi i zapobiegawczymi i zasadami postępowania w przypadku wystąpienia awarii lub zagrożeń - formularz PBHP10-F3,</li>
+                <li id='l8'>5.8 pracownicy zostali zapoznani z zagrożeniami występującymi podczas wykonywania pracy w WOK sp. z o. o. w Brodnicy, podejmowanymi działania ochronnymi i zapobiegawczymi i zasadami postępowania w przypadku wystąpienia awarii lub zagrożeń podpisując formularz PBHP10-F3,</li>
+                <li id='l9'>5.9 pracownicy posiadają właściwą do wykonywanych pracy odzieży, obuwie robocze i środki ochrony indywidualnej oraz będą stosować, na terenie WOK, kamizelki ostrzegawcze koloru żółtego,</li>
+                <li id='l10'>5.10 pracownicy posiadają wymagane aktualne uprawnienia do wykonywania prac, przedstawiając ich kopie,</li>
+                <li id='l11'>5.11 ponosi wyłączną i pełną odpowiedzialność za personel przy pomocy, którego będzie wykonywał zlecenie,</li>
+                <li id='l12'>5.12 zachowa porządek i usunie odpady powstałe podczas wykonywania zlecenia,</li>
+                <li id='l13'>5.13 udzielono mu pełnej informacji o przedmiocie zlecenia,</li>
+                <li id='l14'>5.14 okresowo kontrolować będzie wpisy czasu pracy na kartach wejść i wyjść dostępnych na portierni,</li>
+                <li id='l15'>5.15 wręczono mu i będzie stosował się do wymagań dla wykonawców wykonujących pracę na rzecz WOK sp. z o. o. w Brodnicy na formularzu PBHP10-F2.</li>
+                <li id='l15'>5.16  wskazano oraz zapewniono kontakt z Pracownikiem odpowiedzialnym ze strony WOK sp. z o. o.  którym jest;</li>
+                <table style='margin-right:auto;width: 60%'><tr><td style='height:30px;border: 1px solid black;text-align: center'>{{ data['data']['PRACOWNIKUCZESTNICZACY']}}</td></tr></table>
+                <li>oraz pracownikiem SUR odpowiedzialnym za prowadzenie dokumentacji związanej z procedurą nr 10 zarządzania wykonawcami, którym jest</li>
+                <table style='margin-right:auto;width: 60%'><tr><td style='height:30px;border: 1px solid black;text-align: center'>{{ data['data']['PRACOWNIKODPOWIEDZIALNY']}}</td></tr></table>
+            </ol>
+        </li>
+        <li>Termin realiacji
+            <table style='margin-right:auto;width: 80%;border-collapse: collapse' >
+                <tr>
+                    <td style='height:30px;border: 1px solid black;text-align: center'>Data i godzina rozpoczęcia prac</td>
+                    <td style='height:30px;border: 1px solid black;text-align: center'>Data i godzina zakończenia prac</td>
+                </tr>
+                <tr>
+                    <td style='height:30px;border: 1px solid black;text-align: center'>{{ data['data']['DATAOD']['date']|slice(0,16) }}</td>
+                    <td style='height:30px;border: 1px solid black;text-align: center'>{{ data['data']['DATADO']['date']|slice(0,16) }}</td>
+                </tr>
+            </table>
+        </li>
+        <li>Uwagi
+            <div style='height: 100px;margin-left: auto;margin-right: auto;border: 1px solid black;text-align: center'>{{ data['data']['UWAGI']}}</div>
+        </li>
+    </ol>
+    <p>Brodnica, dnia {{ data['dzis'] }}</p>
+    <p style='width: 80%;margin-right: auto;margin-left: auto;word-spacing: 350px'>Zleceniodawca Wykonawca</p>
+    <div style='border: 1px solid black;width: 225px;height: 30px;float: left;'></div>
+    <div style='width: 200px;height: 30px;float: left;'></div>
+    <div style='border: 1px solid black;width: 225px;height: 30px;float: left'></div>
+    <p style='clear: both'>*-niepotrzebne skreślić</p>
+{% else %}
+    <h1>Ładownie danych nie ładuje :(</h1>
+{% endif %}

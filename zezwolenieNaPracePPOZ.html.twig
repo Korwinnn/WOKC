@@ -1,0 +1,146 @@
+<table style="width: 100%"><tr>
+<td style="text-align: left"><pre >
+Wywtórnia Opakowań Kartonowych
+Stefania Wiśniewska
+Brodnica, ul. Podgórna 104
+    </pre></td>
+        <td style="text-align: right"></td>
+    </tr>
+</table>
+
+<h4 style="text-align: center">Zezwolenie nr {{ data['info']['NRZEZWOLENIA'] }}</h4>
+<h5 style="text-align: center">na prowadzenie prac niebezpiecznych pod względem pożarowym</h5>
+<p>1. Miejsce prowadzenia prac (budynek, pomieszczenie): {{ data['info']['LOKALIZACJA'] }}</p>
+<p>2. Opis robót (rodzaj pracy): {{ data['info']['OPISROBOT'] }}</p>
+<p>3. Czas pracy od: {{ data['info']['CZASPRACYOD']['date']|date("d.m.Y H:i") }} do: {{ data['info']['CZASPRACYDO']['date']|date("d.m.Y H:i") }}</p>
+<p>4. Zagrożenie pożarowe - wybuchowe w miejscu pracy ( określić z czeo wynika): {{ data['info']['OPISZAGROZENIEPOZAROWE'] }}</p>
+<p>5. Sprzęt gaśniczy: </p>
+        {% if data['info']['SPRZETGASNICZYTABELA'][0] == "Y" %}
+            - gaśnica GS-5X <br>
+        {% endif %}
+        {% if data['info']['SPRZETGASNICZYTABELA'][1] == "Y" %}
+            - gaśnica GP-6BC <br>
+        {% endif %}
+        {% if data['info']['SPRZETGASNICZYTABELA'][2] == "Y" %}
+            - gaśnica GP-12ABC <br>
+        {% endif %}
+        {% if data['info']['SPRZETGASNICZYTABELA'][3] == "Y" %}
+            - agregat gaśniczy <br>
+        {% endif %}
+        {% if data['info']['SPRZETGASNICZYTABELA'][4] == "Y" %}
+            - koc gaśniczy <br>
+        {% endif %}
+        - inne: {{  data['info']['SPRZETGASNICZYTABELA'][5] }}
+<p>6. Opis środkow zbezpieczanjących</p>
+- usunąć materiały palne i zanieczyszczenia, <br>
+
+- osłonić i zabezpieczyć przedmioty palne, <br>
+
+- sprawdzić sąsiednie stanowisko (pomieszczenie), <br>
+
+- uszczelnić materiałem niepalnym otwory instalacyjne, <br>
+
+- dokonać bieżącej kontroli miejsca prowadzenia robót, <br>
+
+- kontrolować miejsce prac : po ich zakończeniu, następnie po 4 i 8 godzinach <br>
+
+
+<p>8. Wykonawcy: </p>
+{% for e in data['info']['WYKONAWCYTABELA'] %}
+    - {{ e }} <br>
+{% endfor %}
+<p>9. Osoby odpowiedzialne: </p>
+<table class="tabelaPracownikow">
+    <tbody style="text-align: center">
+    <tr>
+        <td>{{ data['info']['ODPOWIEDZIALNITABELA'][0] }}</td>
+        <td> - przygotowanie miejsca pracy</td>
+        <td>____________________</td>
+    </tr>
+    <tr>
+        <td>{{ data['info']['ODPOWIEDZIALNITABELA'][1] }}</td>
+        <td> - wyłączenie urządzeń spod napięcia</td>
+        <td>____________________</td>
+    </tr>
+    <tr>
+        <td>{{ data['info']['ODPOWIEDZIALNITABELA'][2] }}</td>
+        <td> - stosowanie środków zabezpieczających, organizację pracy i instruktaż</td>
+        <td>____________________</td>
+    </tr>
+    <tr>
+        <td>{{ data['info']['ODPOWIEDZIALNITABELA'][3] }}</td>
+        <td> - nadzór</td>
+        <td>____________________</td>
+    </tr>
+    <tr>
+        <td>{{ data['info']['ODPOWIEDZIALNITABELA'][4] }}</td>
+        <td> - za kontrolę miejsca prac po ich zakończeniu</td>
+        <td>____________________</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td style="text-align: center">imię i nazwisko</td>
+        <td style="text-align: center">stanowisko</td>
+        <td style="text-align: center">podpis</td>
+    </tr>
+    </tfoot>
+</table>
+
+
+<p>10. Ustalenia ogólne:</p>
+Osoby wykonujące prace znają wymagania ochrony przeciwpożarowej (ogólne i zakładowe). <br>
+
+Wykonawcy prac zostali zapoznani z zagrożeniami pożarowymi występującymi w miejscu wykonywania robót. <br>
+
+Sprzęt i narzędzia są sprawne i odpowiednio zabezpieczone przed możliwością zainicjowania lub rozprzestrzeniania pożaru
+<br>
+
+Wykonano wszystkie zalecenia zawarte w protokole. <br>
+
+Stanowisko pracy wyposażono w wymagany sprzęt gaśniczy. <br>
+
+Zapewniono drogi ewakuacji oraz dostęp dla jednostek ratowniczo-gaśniczych. Uzgodniono prowadzenie kontroli miejsca prac po ich zakończeniu.
+<br>
+
+<p>11. Teren prowadzenia prac spawalniczych, ciecia metali i innych prac z użyciem otwartego ognia (w promieniu co najmniej 5 metrów):</p>
+
+Usunięto wszystkie dające się usunąć materiały palne i zanieczyszczenia. Zabezpieczono przed zapaleniem materiały palne, których nie można usunąć.
+<br>
+
+Zabezpieczono skutecznie otwory w ścianach i stropach, studzienki ściekowe oraz wszelkie nieszczelne miejsca kanalizacji
+<br>
+
+Zbiornik lub odcinek instalacji objęty pracami wyłączono od pozostałej części poprzez zamontowanie zaślepek (jeżeli mogą tam występować gazy lub ciecze palne).
+<br>
+
+Wyeliminowano możliwość powstania pożaru wskutek przewodnictwa cieplnego. <br>
+
+<p>12. Prace spawalnicze:</p>
+
+Osoby wykonujące prace posiadają wymagane przepisamı kwalifikacje. <br>
+
+Butle z gazami technicznymi ustawione są w pozycji pionowej (lub zbliżonej) i zabezpieczone przed przewróceniem. <br>
+
+Butle usytuowane są poza zasięgiem płomienia, iskier 1 gorących cząstek stałych. <br>
+
+Butle ustawione są w odpowiedniej odległości od źródeł ciepła (zabezpieczone przed nagrzaniem do temperatury powyżej 35C).
+<br>
+
+<p>13. Wszelkie prace remontowo-budowlane w strefach zagrożonych wybuchem.</p>
+
+Pracownicy są wyposażeni w odzież antyelektrostatyczną i obuwie przewodzące zgodnie z PN. Sprzęt i narzędzia są przystosowane do pracy w strefie zagrożenia wybuchem.
+<br>
+
+<p>14 . Po osobistym sprawdzeniu miejsca pracy stwierdzam, że spełnione zostały wszystkie określone wymagania i zezwalam na rozpoczęcie robót (Nazwisko) ....................... podpis ......................</p>
+
+
+<p>15. Prace zakończono o godz ............................ pdopis wykonawcy .............................</p>
+
+<p>16. Przyjęcie miejsca pracy:</p>
+Stanowisko pracy i jego otoczenie sprawdzono i nie stwierdzono zaniedbań mogących zainicjować pożar ( Nazwisko ) .......................................
+<br>
+Kontrola miesca prac po ich zakonćżeniu: <br>
+bezpośrednio po zakończeniu ( Nazwisko ) ................................... podpis ...................................
+po 4 godzinach ( Nazwisko ) ................................... podpis ...................................
+po 8 godzinach ( Nazwisko ) ................................... podpis ...................................

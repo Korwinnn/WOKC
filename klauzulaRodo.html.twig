@@ -1,0 +1,12 @@
+
+{% if data is defined %}
+    <h1 style='font-size: 20pt;text-align: center'>Zgoda na przetwarzanie danych osobowych</h1><br><br>
+    <h3 style='font-size: 14pt;text-align: center'>Oświadczenie</h3>
+    <h3 style='font-size: 14pt;text-align: center'>w sprawie wyrażenia zgody na przetwarzanie danych osobowych</h3>
+    <p style='font-size: 11pt;text-align: center; width:85%;margin:auto'>Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do realizacji zlecenie na terenie WOK Spółka z ograniczoną odpowiedzialnością ul. Podgórna 104 (zgodnie z ustawą z dnia 10 maja 2018 roku o ochronie danych osobowych (Dz. Ustaw z 2018, poz. 1000) oraz zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (RODO).</p>
+    <br><br>
+    <p  style='font-size: 10pt;width:55%;margin-left:auto;text-align: right;border-bottom: 3px dotted black'>{{data['dzis']}} Brodnica <img style='width:65%;margin:0px;padding:0px' src='{{data['src']}}'></p>
+    <p  style='font-size: 11pt;width:55%;margin-left:auto;text-align: center'>Data, miejsce i podpis osoby wyrażającej zgodę</p>
+{% else %}
+    <h1>Ładownie danych nie ładuje :(</h1>
+{% endif %}

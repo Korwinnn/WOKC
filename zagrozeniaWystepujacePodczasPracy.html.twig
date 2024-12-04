@@ -1,0 +1,124 @@
+
+{% if data['message'] is defined and  data['message']=='ok' %}
+    <h1 style='font-size: 11pt;text-align: center'>Zagrożenia występujące podczas wykonywania pracy w WOK sp. z o. o. w Brodnicy, podejmowane działania ochronne i zapobiegawcze oraz zasady postępowania w przypadku wystąpienia awarii lub zagrożeń</h1>
+    <h3>Wykonawca:</h3>
+    <p>Opis prac do wykonania: {{ data['data']['TRESCZLECENIA']}}</p>
+    <p>Lokalizacja wykonywanych prac: {{ data['data']['LOKALIZACJA']}}</p>
+    <p>Planowany termin realizacja prac: {{ data['data']['DATADO']['date']|slice(0,16) }}</p>
+    <table style="border: 1px solid black;border-collapse: collapse">
+        <tr>
+            <th>Tak</th>
+            <th>Nie</th>
+            <th>Zagrożenia</th>
+            <th>Możliwe źródła zagrożeń</th>
+            <th>Działania ochronne i zapobiegawcze</th>
+        </tr>
+        <tr>
+            {% if data['data']['ANKIETA']|slice(0,1)=="Y" %} <td>&#10004;</td><td></td>
+            {% else %}  <td></td><td>&#10004;</td>
+            {% endif %}
+            <td>Upadek na tym samym poziomie.</td>
+            <td>Śliskie i nierówne powierzchnie na zewnątrz i wewnątrz pomieszczeń. Zatarasowane przejścia.</td>
+            <td>Stosowanie przez pracowników odpowiedniego obuwia. Zapewnienie porządku i czystości w miejscu pracy.</td>
+        </tr>
+        <tr>
+            {% if data['data']['ANKIETA']|slice(2,1)=="Y" %} <td>&#10004;</td><td></td>
+            {% else %}  <td></td><td>&#10004;</td>
+            {% endif %}
+            <td>Upadek z wysokości.</td>
+            <td>Wykonywanie pracy na wysokości powyżej 1 metra, wykonywanie pracy z drabin, pomostów i na rusztowaniach.</td>
+            <td>Stosowanie odpowiednich zabezpieczeń stałych (poręczy). Stosowania środków ochrony indywidualnej.</td>
+        </tr>
+        <tr>
+            {% if data['data']['ANKIETA']|slice(4,1)=="Y" %} <td>&#10004;</td><td></td>
+            {% else %}  <td></td><td>&#10004;</td>
+            {% endif %}
+            <td>Przygniecenie, uderzenie, potrącenie.</td>
+            <td>Upadek składowanych przedmiotów. Niestabilne ułożenie materiałów w stosie lub na paletach. Poruszające się środki transportu ręcznego lub mechanicznego.</td>
+            <td>Poruszanie się po terenie zakładu po wyznaczonych drogach. Zachowanie szczególnej ostrożności na skrzyżowaniach dróg pieszych z drogami transportowymi.</td>
+        </tr>
+        <tr>
+            {% if data['data']['ANKIETA']|slice(6,1)=="Y" %} <td>&#10004;</td><td></td>
+            {% else %}  <td></td><td>&#10004;</td>
+            {% endif %}
+            <td>Urazy spowodowane będącymi w ruchu elementami maszyn i urządzeń.</td>
+            <td>Brak zabezpieczenia maszyn i urządzeń przed możliwością ich uruchomienia w czasie prowadzonego remontu. Niezamierzone uruchomienie maszyny lub urządzenia.</td>
+            <td>Odłączeniu maszyny lub urządzenia od doprowadzonych mediów (sprężone powietrze, energia elektryczna). Zabezpieczenie przed możliwością przypadkowego włączenia mediów (kłódka na głównym włączniku prądu, zaślepienie lub odłączenie przewodu ze sprężonym powietrzem.</td>
+        </tr>
+        <tr>
+            {% if data['data']['ANKIETA']|slice(8,1)=="Y" %} <td>&#10004;</td><td></td>
+            {% else %}  <td></td><td>&#10004;</td>
+            {% endif %}
+            <td>Oparzenia termiczne.</td>
+            <td>Gorące elementy maszyn i urządzeń.</td>
+            <td>Nie zbliżanie się do nieosłoniętych gorących elementów maszyn i urządzeń. W przypadku wątpliwości zasięgnąć porady kompetentnego pracownika WOK sp. z o. o.</td>
+        </tr>
+        <tr>
+            {% if data['data']['ANKIETA']|slice(10,1)=="Y" %} <td>&#10004;</td><td></td>
+            {% else %}  <td></td><td>&#10004;</td>
+            {% endif %}
+            <td>Oparzenia chemiczne.</td>
+            <td>Wodorotlenek sodu, kwas siarkowy i inne substancje szkodliwe.</td>
+            <td>W przypadku konieczności zachowanie ostrożności w czasie przebywania w oczyszczalni ścieków i w kuchni klejowej. Stosowanie środków ochrony indywidualnej. Stosowanie procedur ustalonych w WOK sp. z o. o.</td>
+        </tr>
+        <tr>
+            {% if data['data']['ANKIETA']|slice(12,1)=="Y" %} <td>&#10004;</td><td></td>
+            {% else %}  <td></td><td>&#10004;</td>
+            {% endif %}
+            <td>Hałas</td>
+            <td>Tekturnica oraz inne urządzenia wytwarzające hałas powyżej normy NDN.</td>
+            <td>Stosowanie w razie konieczności ochronników słuchu.</td>
+        </tr>
+        <tr>
+            {% if data['data']['ANKIETA']|slice(14,1)=="Y" %} <td>&#10004;</td><td></td>
+            {% else %}  <td></td><td>&#10004;</td>
+            {% endif %}
+            <td>Porażenie prądem elektrycznym</td>
+            <td>Niesprawna instalacja elektryczna.</td>
+            <td>Stosowanie sprawnego technicznie osprzętu elektrycznego i przewodów doprowadzających prąd elektryczny. Dokonywanie podłączeń do instalacji elektrycznej WOK sp. z o. o. tylko przez uprawnionego elektryka.</td>
+        </tr>
+        <tr>
+            {% if data['data']['ANKIETA']|slice(16,1)=="Y" %} <td>&#10004;</td><td></td>
+            {% else %}  <td></td><td>&#10004;</td>
+            {% endif %}
+            <td>Pożar. Wybuch.</td>
+            <td>Zaprószenie ognia w miejscu znajdowania się materiałów łatwo palnych.</td>
+            <td>Przestrzeganie zakazu palenia tytoniu w miejscach do tego nie wyznaczonych. W przypadku konieczności wykonywania prac powodujących zagrożenie pożarowe uzyskać od pracownika WOK sp. z o. o. zlecającego pracę stosowne zezwolenie.</td>
+        </tr>
+    </table>
+    <h1 style='font-size: 11pt;text-align: center;color: blue'><i>W przypadku stwierdzenia zagrożenia będącego wynikiem działania ze strony<br> WOK sp. z o. o., o fakcie tym należy natychmiast powiadomić wyznaczonego Pracownika zleceniodawcy</i></h1>
+    <p>W razie wątpliwości, co do prawidłowości swoich działań czy prawidłowości pracy urządzeń stosowanych w procesie pracy albo w przypadku wystąpienia zagrożeń masz prawo przerwać pracę i zwrócić się o dodatkowe wskazówki do swojego bezpośredniego przełożonego.</p>
+    <p>W razie <b>zaistnienia wypadku</b> udziel poszkodowanemu pierwszej pomocy, powiadom przełożonych i wezwij pomoc medyczną.</p>
+    <p>W razie <b>wystąpienia pożaru</b> spróbuj ugasić go w zarodku przy użyciu podręcznego sprzętu gaśniczego, a jeżeli jest to niemożliwe, postępuj dalej zgodnie z Instrukcją postępowania na wypadek pożaru, alarmując w pierwszej kolejności pozostałych pracowników będących w rejonie zagrożenia.</p>
+    {% if osoby['message'] is defined and  osoby['message']=='ok' %}
+        <p style='width: 80%;margin-right: auto;margin-left: auto;word-spacing: 350px'>Zleceniodawca Wykonawca</p>
+        <div style='border-bottom: 1px dotted black;width: 225px;height: 25px;float: left;padding: 0'>{{ data['dzis'] }}</div>
+        <div style='width: 200px;height: 30px;float: left;'></div>
+        <div style='border-bottom: 1px dotted black;width: 225px;height: 25px;float: left;padding: 0'>{{ data['dzis'] }}</div>
+        <div style='text-align:center;width: 225px;height: 10px;float: left;color: blue;font-size: 7pt;'><i>data i podpis</i></div>
+        <div style='width: 200px;height: 30px;float: left;'></div>
+        <div style='text-align:center;width: 225px;height: 10px;float: left;color: blue;font-size: 7pt'><i>data i podpis</i></div>
+        <h1 style='clear: both;font-size: 11pt;text-align: center;color: blue'><i>Lista pracowników wykonawcy<br>zapoznanych z zagrożeniami  występującymi na terenie WOK sp. z o.o. podczas wykonywania pracy oraz wymaganiami dla wykonawców wykonujących pracę na rzecz WOK sp. z o. o</i></h1>
+        <table style="border: 1px solid black;border-collapse: collapse">
+            <tr>
+                <th>Imię nazwisko pracownika</th>
+                <th>Stanowisko</th>
+                <th>Data ważności szkolenia w zakresie bhp i ppoż.</th>
+                <th>Data ważności profilaktycznych badań lekarskich</th>
+                <th>Data i podpis pracownika</th>
+            </tr>
+            {% for item in osoby['kierowcy'] %}
+                <tr>
+                    <td style="width:15%;padding:0px">{{ item['kierowca'] }}</td>
+                    <td style="width:15%;padding:5px">{{ item['RODZAJ']|slice(10,) }}</td>
+                    <td style="width:15%;padding:5px">{{ item['CZASSZKOLENIABHP']['date']|slice(0,10) }}</td>
+                    <td style="width:15%;padding:5px">{{ item['CZASBADANIALEKARSKIEGO']['date']|slice(0,10) }}</td>
+                    <td style="width:40%;padding:5px;text-align: left">{{ item['ARRIVETIME']['date']|slice(0,10) }}<img style="width:200px;height:50px" src='{{podpisy[item['RECID']]}}'></td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+{% else %}
+    <h1>Ładownie danych nie ładuje :Q</h1>
+{% endif %}
+
