@@ -141,3 +141,26 @@
 {% else %}
     <h1>Ładownie danych nie ładuje :(</h1>
 {% endif %}
+
+
+
+
+ $sql="select STATUS,cdb.CASEID,isnull(cdb.DESCRIPTION,'') + isnull(wor.OPIS,'') as DESCRIPTION,cdb.RECID ,cdb.PRIORITY,cdb.WOK_DZIALUZUPELNIAJACYSPRAWE,
+                cchd.DESCRIPTION as CategoryDescription,cdb.CREATEDDATETIME,hcm.PERSONNELNUMBER,clp.ITEMID,clp.PRODID,cdb.ILOSCREKLAMOWANEGOTOWARU,
+                cdb.SPOSOBZALATWIENIAREKLAMACJI,cdb.CZYZWROTTOWARU,cdb.NRREKLAMACJIODBIORCY,
+                (select katdt.CASECATEGORY from wokdax.dbo.CASECATEGORYHIERARCHYDETAIL katdt where katdt.RECID=cdb.CATEGORYRECID ) as kat,
+                (select top 1 PP_NAZWA from wokdax.dbo.inventtable iv where iv.ITEMID=clp.ITEMID) as itemName,
+                (select top 1 sl.DELIVERYNAME from WOKDAX.dbo.PRODTABLE pt
+                    join WOKDAX.dbo.SALESLINE sl on pt.PP_INVENTTRANSID=sl.INVENTTRANSID where pt.PRODID=clp.PRODID) as DeliverName,
+                    (SELECT TOP 1 hcm2.PERSONNELNUMBER FROM wokdax.dbo.custtable ct 
+                    JOIN wokdax.dbo.hcmworker as hcm2 on hcm2.recid = ct.pp_handlowiec 
+                    WHERE left(clp.ITEMID,5)=ct.accountnum
+                    )as handlowiec
+                
+                from WOKDAX.DBO.CASEDETAILBASE cdb
+                left join wokdax.dbo.WOK_OPISREKLAMACJI wor on wor.CASEID=cdb.CASEID and wor.DATAAREAID=cdb.DATAAREAID and wor.PARTITION=cdb.PARTITION
+                left join wokdax.dbo.CASECATEGORYHIERARCHYDETAIL cchd on cchd.RECID=cdb.CATEGORYRECID and cchd.DATAAREAID=cdb.DATAAREAID and cchd.PARTITION=cdb.PARTITION
+                left join wokdax.dbo.hcmworker hcm on hcm.RECID=cdb.OwnerWorker and hcm.PARTITION=cdb.PARTITION
+                
+                left join wokdax.dbo.CASELISTPAGEZPRVIEW clp on clp.CASEID=cdb.CASEID and clp.DATAAREAID=cdb.DATAAREAID and clp.PARTITION=cdb.PARTITION 
+                where  cdb.partition = 5637144576 and cdb.dataareaid = 'wok' and cdb.CASEID='$this->caseid'";
